@@ -1,0 +1,12 @@
+{
+  "name": "muravengers-vs-doom",
+  "version": "1.0.0",
+  "description": "Одностраничный сайт: Муравьи-Мстители против Доктора Дума",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": ["ant-avengers", "doctor-doom", "comic", "landing-page"],
+  "author": "",
+  "license": "MIT"
+}

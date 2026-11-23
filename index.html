@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>МУРАВЬИ-МСТИТЕЛИ vs ДОКТОР ДУМ | Битва за Муравейник</title>
+  <meta name="description" content="Эпическая супергеройская битва микромира: Муравьи-Мстители защищают Великий Муравейник от тирании Доктора Муравья Дума!">
+  
+  <!-- Google Fonts: Russo One & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,800;0,900;1,700&family=Russo+One&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/shield.svg">
+</head>
+<body class="theme-avengers">
+  <!-- Dynamic Particle Canvas Background -->
+  <canvas id="fx-canvas" class="background-canvas"></canvas>
+
+  <!-- Sound notification banner -->
+  <div id="sound-toast" class="sound-toast hidden">
+    <span class="toast-icon">🔊</span>
+    <span class="toast-text">Звуковые эффекты синтезатора активированы!</span>
+  </div>
+
+  <!-- Comic Screen Shake Overlay -->
+  <div id="screen-flash" class="screen-flash"></div>
+
+  <!-- HEADER / NAVIGATION -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#hero" class="brand-logo" title="На главную">
+        <div class="logo-icons">
+          <img src="assets/icons/shield.svg" alt="Щит Капитана Муравья" class="logo-shield">
+          <img src="assets/icons/doom-mask.svg" alt="Маска Дума" class="logo-doom">
+        </div>
+        <div class="logo-text">
+          <span class="logo-sub">ЗЕМЛЯ-616-МИЛЛИМЕТРОВ</span>
+          <span class="logo-title">МУРАВЬИ-МСТИТЕЛИ</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" id="main-nav">
+        <ul class="nav-links">
+          <li><a href="#story" class="nav-link">Хроника</a></li>
+          <li><a href="#roster" class="nav-link">Досье Героев</a></li>
+          <li><a href="#game" class="nav-link nav-highlight">🎮 Мини-игра</a></li>
+          <li><a href="#threat-calc" class="nav-link">Сканер Угрозы</a></li>
+          <li><a href="#artifacts" class="nav-link">Артефакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Audio Synthesizer Toggle -->
+        <button id="btn-sound" class="btn-icon" aria-label="Включить звук" title="Вкл/Выкл звуки Web Audio">
+          <span class="sound-icon-on">🔊</span>
+          <span class="sound-icon-off" style="display:none;">🔇</span>
+          <span class="sound-label">ЗВУК</span>
+        </button>
+
+        <!-- Doom Mode Toggle (Easter egg) -->
+        <button id="btn-doom-mode" class="btn-doom-toggle" title="Включить Латверийский Режим Дума!">
+          <span class="doom-btn-glow"></span>
+          <span class="doom-btn-text">РЕЖИМ ДУМА</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-toggle" class="btn-mobile-menu" aria-label="Открыть меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        <span class="hero-badge-txt">ТРЕВОГА ВЕЛИКОГО МУРАВЕЙНИКА: КОД «РАФИНАД»</span>
+      </div>
+
+      <div class="hero-titles">
+        <h1 class="hero-main-title">
+          <span class="title-avengers">МУРАВЬИ-МСТИТЕЛИ</span>
+          <span class="title-vs">ПРОТИВ</span>
+          <span class="title-doom">ДОКТОРА ДУМА</span>
+        </h1>
+        <p class="hero-subtitle">
+          Правитель Латверийского Пня похитил Священный Кристалл Сахара и собирает армию кибер-тлей. 
+          Шесть ног, одно сердце, нулевой страх: величайшие шестиногие защитники выходят на бой!
+        </p>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="hero-cta-group">
+        <a href="#game" class="btn-comic btn-primary" id="cta-battle">
+          <span class="btn-boom">💥</span>
+          ВСТУПИТЬ В БИТВУ
+        </a>
+        <a href="#roster" class="btn-comic btn-secondary" id="cta-dossier">
+          <span class="btn-star">⭐</span>
+          ДОСЬЕ БОЙЦОВ
+        </a>
+        <button id="btn-anthem" class="btn-comic btn-alt">
+          <span class="btn-note">🎵</span>
+          СИНТЕЗ-ГИМН
+        </button>
+      </div>
+
+      <!-- Hero Visual Showdown Scene Banner -->
+      <div class="hero-showdown-card">
+        <div class="comic-tape tape-tl">ВЫПУСК #1</div>
+        <div class="comic-tape tape-tr">ЭКСКЛЮЗИВ</div>
+        <div class="showdown-visual-wrapper">
+          <img src="assets/images/epic-showdown.svg" alt="Битва Муравьев-Мстителей против Доктора Муравья Дума" class="showdown-img">
+        </div>
+        <div class="showdown-caption">
+          <div class="caption-tag">ПОЛЕ БОЯ: ОПУШКА СТАРОГО ДУБА</div>
+          <div class="caption-text">«Один крошечный шаг для муравья — гигантский рывок для всего микромира!»</div>
+        </div>
+      </div>
+
+      <!-- Micro-Metrics Ticker -->
+      <div class="hero-metrics">
+        <div class="metric-card">
+          <div class="metric-num" data-target="1500000">1 500 000+</div>
+          <div class="metric-label">Рабочих муравьев в строю</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">5000×</div>
+          <div class="metric-label">Свой вес поднимает Капитан</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">100%</div>
+          <div class="metric-label">Чистая сахароза в Кристалле</div>
+        </div>
+        <div class="metric-card highlight-doom-metric">
+          <div class="metric-num">0.0001%</div>
+          <div class="metric-label">Шанс победы Дума по его расчетам</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMIC LORE SECTION (CHRONICLE) -->
+    <section id="story" class="section-comic-story">
+      <div class="section-header">
+        <span class="section-subtitle">ЛЕТОПИСЬ МИКРОМИРА</span>
+        <h2 class="section-title">ХРОНИКА САХАРНОЙ ВОЙНЫ</h2>
+        <div class="section-divider"></div>
+        <p class="section-desc">
+          Как мирный пикник превратился в арену величайшего межвидового противостояния столетия.
+        </p>
+      </div>
+
+      <div class="comic-strip-grid">
+        <!-- Panel 1 -->
+        <div class="comic-panel panel-1">
+          <div class="panel-number">1</div>
+          <div class="panel-header-badge">Глава I: Тень Латверии</div>
+          <div class="panel-art">
+            <img src="assets/icons/doom-mask.svg" alt="Доктор Дум в пне" class="panel-icon-center">
+            <div class="speech-bubble bubble-left">
+              «Мой гений тесен в этом трухлявом пне! Весь сад падет ниц!»
+            </div>
+          </div>
+          <div class="panel-caption">
+            <strong>Виктор фон Мурав</strong>, изгнанный из королевской колонии за запретные кибер-опыты над тлями, создал техно-крепость в старом пне и провозгласил себя Владыкой.
+          </div>
+          <div class="panel-sfx">КЛАЦ-КЛАЦ!</div>
+        </div>
+
+        <!-- Panel 2 -->
+        <div class="comic-panel panel-2">
+          <div class="panel-number">2</div>
+          <div class="panel-header-badge">Глава II: Дерзкое ограбление</div>
+          <div class="panel-art">
+            <img src="assets/icons/sugar.svg" alt="Похищение Кристалла Сахара" class="panel-icon-center pulse-glow">
+            <div class="speech-bubble bubble-right">
+              «С этой мощью мои Дум-боты будут маршировать вечно!»
+            </div>
+          </div>
+          <div class="panel-caption">
+            Под покровом сумерек диверсионный отряд робо-тлей проник к оставленному людьми столу и похитил <strong>Кристалл Рафинада</strong> — артефакт неисчерпаемой глюкозной энергии.
+          </div>
+          <div class="panel-sfx">ВЖЖЖЖ-ХРУСЬ!</div>
+        </div>
+
+        <!-- Panel 3 -->
+        <div class="comic-panel panel-3">
+          <div class="panel-number">3</div>
+          <div class="panel-header-badge">Глава III: Сбор Мстителей</div>
+          <div class="panel-art">
+            <img src="assets/icons/shield.svg" alt="Капитан Муравей созывает сбор" class="panel-icon-center">
+            <div class="speech-bubble bubble-left">
+              «Муравстители... К СБОРУ! Защитим наш сахарный склад!»
+            </div>
+          </div>
+          <div class="panel-caption">
+            <strong>Капитан Муравей</strong> поднял по тревоге легендарную группу: Тони Стерк снарядил нано-хитин, Тор настроил статику шерстяного ковра, а Халк размял титанические челюсти.
+          </div>
+          <div class="panel-sfx">БА-БАХ!</div>
+        </div>
+
+        <!-- Panel 4 -->
+        <div class="comic-panel panel-4">
+          <div class="panel-number">4</div>
+          <div class="panel-header-badge">Глава IV: Час Расплаты</div>
+          <div class="panel-art">
+            <img src="assets/icons/hammer.svg" alt="Битва за Муравейник" class="panel-icon-center">
+            <div class="speech-bubble bubble-right">
+              «Да свершится суд шестиногих богов грома!»
+            </div>
+          </div>
+          <div class="panel-caption">
+            У подножия Розового Куста две армии сошлись в решающей битве. На кону — свобода каждого рабочего муравья и будущее всей колонии.
+          </div>
+          <div class="panel-sfx">ДЗЫЫЫЫНЬ!</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHARACTER ROSTER & DOSSIER -->
+    <section id="roster" class="section-roster">
+      <div class="section-header">
+        <span class="section-subtitle">СЕКРЕТНЫЕ МАТЕРИАЛЫ РАЗВЕДКИ</span>
+        <h2 class="section-title">ДОСЬЕ УЧАСТНИКОВ КОНФЛИКТА</h2>
+        <div class="section-divider"></div>
+        <p class="section-desc">
+          Нажмите на карточку любого бойца, чтобы изучить боевые параметры, снаряжение и фирменный клич!
+        </p>
+      </div>
+
+      <!-- Faction Filter Tabs -->
+      <div class="filter-controls">
+        <button class="filter-btn active" data-filter="all">
+          <span class="filter-icon">🌐</span> Все бойцы (<span id="count-all">8</span>)
+        </button>
+        <button class="filter-btn" data-filter="avengers">
+          <span class="filter-icon">🛡️</span> Муравьи-Мстители (<span id="count-avengers">6</span>)
+        </button>
+        <button class="filter-btn" data-filter="doom">
+          <span class="filter-icon">👑</span> Легион Дума (<span id="count-doom">2</span>)
+        </button>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="roster-grid" id="roster-grid">
+        <!-- 1. Captain Muravey -->
+        <div class="char-card faction-avengers" data-char="cap" data-faction="avengers">
+          <div class="card-comic-border"></div>
+          <div class="card-badge badge-hero">МСТИТЕЛЬ #1</div>
+          <div class="card-image-box">
+            <img src="assets/images/captain-ant.svg" alt="Капитан Муравей" class="char-img">
+            <div class="card-shine"></div>
+          </div>
+          <div class="card-info">
+            <div class="char-real-name">Стив Роджерс-Мураш</div>
+            <h3 class="char-name">КАПИТАН МУРАВЕЙ</h3>
+            <p class="char-role">Первый Супер-Солдат Колонии</p>
+            <div class="char-stats">
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Стойкость:</span>
+                <div class="stat-track"><div class="stat-fill" style="width: 95%;"></div></div>
+                <span class="stat-val">95%</span>
+              </div>
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Феромоны:</span>
+                <div class="stat-track"><div class="stat-fill" style="width: 100%;"></div></div>
+                <span class="stat-val">100%</span>
+              </div>
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Грузоподъемность:</span>
+                <div class="stat-track"><div class="stat-fill" style="width: 90%;"></div></div>
+                <span class="stat-val">5000×</span>
+              </div>
+            </div>
+            <div class="char-quote">«Я могу таскать эту крошку хлеба целый день!»</div>
+            <button class="btn-inspect" data-target="cap">ИЗУЧИТЬ ДОСЬЕ</button>
+          </div>
+        </div>
+
+        <!-- 2. Iron Ant -->
+        <div class="char-card faction-avengers" data-char="iron" data-faction="avengers">
+          <div class="card-comic-border"></div>
+          <div class="card-badge badge-tech">КИБЕР-ГЕНИЙ</div>
+          <div class="card-image-box">
+            <img src="assets/images/iron-ant.svg" alt="Железный Муравей" class="char-img">
+            <div class="card-shine"></div>
+          </div>
+          <div class="card-info">
+            <div class="char-real-name">Энтони «Тони» Стерк</div>
+            <h3 class="char-name">ЖЕЛЕЗНЫЙ МУРАВЕЙ</h3>
+            <p class="char-role">Владелец «Sterk Nectar Industries»</p>
+            <div class="char-stats">
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Интеллект:</span>
+                <div class="stat-track"><div class="stat-fill" style="width: 100%;"></div></div>
+                <span class="stat-val">100%</span>
+              </div>
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Огневая мощь:</span>
+                <div class="stat-track"><div class="stat-fill" style="width: 98%;"></div></div>
+                <span class="stat-val">98%</span>
+              </div>
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Броня Mark-LXXXV:</span>
+                <div class="stat-track"><div class="stat-fill" style="width: 92%;"></div></div>
+                <span class="stat-val">92%</span>
+              </div>
+            </div>
+            <div class="char-quote">«Гений, миллиардер, плейбой, муравей-строитель.»</div>
+            <button class="btn-inspect" data-target="iron">ИЗУЧИТЬ ДОСЬЕ</button>
+          </div>
+        </div>
+
+        <!-- 3. Doctor Ant Doom -->
+        <div class="char-card faction-doom" data-char="doom" data-faction="doom">
+          <div class="card-comic-border"></div>
+          <div class="card-badge badge-villain">АРХИ-ВРАГ</div>
+          <div class="card-image-box">
+            <img src="assets/images/doctor-doom-ant.svg" alt="Доктор Муравей Дум" class="char-img">
+            <div class="card-shine"></div>
+          </div>
+          <div class="card-info">
+            <div class="char-real-name">Виктор фон Мурав</div>
+            <h3 class="char-name">ДОКТОР МУРАВЕЙ ДУМ</h3>
+            <p class="char-role">Самопровозглашенный Владыка Латверии</p>
+            <div class="char-stats">
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Темный гений:</span>
+                <div class="stat-track"><div class="stat-fill stat-doom" style="width: 100%;"></div></div>
+                <span class="stat-val">100%</span>
+              </div>
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Биоплазма:</span>
+                <div class="stat-track"><div class="stat-fill stat-doom" style="width: 96%;"></div></div>
+                <span class="stat-val">96%</span>
+              </div>
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Высокомерие:</span>
+                <div class="stat-track"><div class="stat-fill stat-doom" style="width: 100%;"></div></div>
+                <span class="stat-val">∞</span>
+              </div>
+            </div>
+            <div class="char-quote">«Вы жалкие букашки перед величием Дума!»</div>
+            <button class="btn-inspect" data-target="doom">ИЗУЧИТЬ ДОСЬЕ</button>
+          </div>
+        </div>
+
+        <!-- 4. Thor Ant -->
+        <div class="char-card faction-avengers" data-char="thor" data-faction="avengers">
+          <div class="card-comic-border"></div>
+          <div class="card-badge badge-myth">БОГ ГРОМА</div>
+          <div class="card-image-box">
+            <img src="assets/images/thor-ant.svg" alt="Тор Муравей" class="char-img">
+            <div class="card-shine"></div>
+          </div>
+          <div class="card-info">
+            <div class="char-real-name">Тор Одинсон из Асгарда</div>
+            <h3 class="char-name">ТОР-МУРАВЕЙ</h3>
+            <p class="char-role">Владыка Статического Электричества</p>
+            <div class="char-stats">
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Мощь молнии:</span>
+                <div class="stat-track"><div class="stat-fill" style="width: 99%;"></div></div>
+                <span class="stat-val">99%</span>
+              </div>
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Божественность:</span>
+                <div class="stat-track"><div class="stat-fill" style="width: 94%;"></div></div>
+                <span class="stat-val">94%</span>
+              </div>
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Вес Мьёльнира:</span>
+                <div class="stat-track"><div class="stat-fill" style="width: 88%;"></div></div>
+                <span class="stat-val">0.42 г</span>
+              </div>
+            </div>
+            <div class="char-quote">«Этот часовой винтик поднимет лишь достойный!»</div>
+            <button class="btn-inspect" data-target="thor">ИЗУЧИТЬ ДОСЬЕ</button>
+          </div>
+        </div>
+
+        <!-- 5. Hulk Ant -->
+        <div class="char-card faction-avengers" data-char="hulk" data-faction="avengers">
+          <div class="card-comic-border"></div>
+          <div class="card-badge badge-gamma">ГАММА-ТИХОНЯ</div>
+          <div class="card-image-box">
+            <img src="assets/images/hulk-ant.svg" alt="Муравьиный Халк" class="char-img">
+            <div class="card-shine"></div>
+          </div>
+          <div class="card-info">
+            <div class="char-real-name">Д-р Брюс Беннет-Мураш</div>
+            <h3 class="char-name">МУРАВЬИНЫЙ ХАЛК</h3>
+            <p class="char-role">Живой Таран Зеленой Ярости</p>
+            <div class="char-stats">
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Физическая мощь:</span>
+                <div class="stat-track"><div class="stat-fill stat-gamma" style="width: 100%;"></div></div>
+                <span class="stat-val">100%</span>
+              </div>
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Прочность хитина:</span>
+                <div class="stat-track"><div class="stat-fill stat-gamma" style="width: 98%;"></div></div>
+                <span class="stat-val">98%</span>
+              </div>
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Спокойствие:</span>
+                <div class="stat-track"><div class="stat-fill stat-gamma" style="width: 4%;"></div></div>
+                <span class="stat-val">4%</span>
+              </div>
+            </div>
+            <div class="char-quote">«ХАЛК КРОШИТЬ САХАРНЫЙ ПЕСОК!»</div>
+            <button class="btn-inspect" data-target="hulk">ИЗУЧИТЬ ДОСЬЕ</button>
+          </div>
+        </div>
+
+        <!-- 6. Doom-Bot Aphid -->
+        <div class="char-card faction-doom" data-char="doombot" data-faction="doom">
+          <div class="card-comic-border"></div>
+          <div class="card-badge badge-drone">СЕРИЯ: DM-07</div>
+          <div class="card-image-box">
+            <img src="assets/images/doom-bot.svg" alt="Дум-Бот Тля" class="char-img">
+            <div class="card-shine"></div>
+          </div>
+          <div class="card-info">
+            <div class="char-real-name">Механизированная Тля v4.0</div>
+            <h3 class="char-name">ДУМ-БОТ «ТЛЯ-УНИЧТОЖИТЕЛЬ»</h3>
+            <p class="char-role">Тяжелая Штурмовая Единица Дума</p>
+            <div class="char-stats">
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Кислотный плевок:</span>
+                <div class="stat-track"><div class="stat-fill stat-doom" style="width: 85%;"></div></div>
+                <span class="stat-val">85%</span>
+              </div>
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Послушание:</span>
+                <div class="stat-track"><div class="stat-fill stat-doom" style="width: 100%;"></div></div>
+                <span class="stat-val">100%</span>
+              </div>
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Количество в рое:</span>
+                <div class="stat-track"><div class="stat-fill stat-doom" style="width: 90%;"></div></div>
+                <span class="stat-val">10 000+</span>
+              </div>
+            </div>
+            <div class="char-quote">«СЛАВА ДУМУ. ЦЕЛЬ ОБНАРУЖЕНА. АННИГИЛЯЦИЯ.»</div>
+            <button class="btn-inspect" data-target="doombot">ИЗУЧИТЬ ДОСЬЕ</button>
+          </div>
+        </div>
+
+        <!-- 7. Black Widow Ant -->
+        <div class="char-card faction-avengers" data-char="widow" data-faction="avengers">
+          <div class="card-comic-border"></div>
+          <div class="card-badge badge-stealth">СПЕЦАГЕНТ</div>
+          <div class="card-image-box">
+            <img src="assets/images/widow-ant.svg" alt="Черная Муравьиха" class="char-img">
+            <div class="card-shine"></div>
+          </div>
+          <div class="card-info">
+            <div class="char-real-name">Наташа Муравьева</div>
+            <h3 class="char-name">ЧЕРНАЯ МУРАВЬИХА</h3>
+            <p class="char-role">Мастер Диверсий и Скрытного Боя</p>
+            <div class="char-stats">
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Скрытность:</span>
+                <div class="stat-track"><div class="stat-fill" style="width: 98%;"></div></div>
+                <span class="stat-val">98%</span>
+              </div>
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Электро-жала:</span>
+                <div class="stat-track"><div class="stat-fill" style="width: 91%;"></div></div>
+                <span class="stat-val">91%</span>
+              </div>
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Ловкость:</span>
+                <div class="stat-track"><div class="stat-fill" style="width: 96%;"></div></div>
+                <span class="stat-val">96%</span>
+              </div>
+            </div>
+            <div class="char-quote">«Ты не увидишь меня, пока не станет слишком поздно.»</div>
+            <button class="btn-inspect" data-target="widow">ИЗУЧИТЬ ДОСЬЕ</button>
+          </div>
+        </div>
+
+        <!-- 8. Hawkeye Ant -->
+        <div class="char-card faction-avengers" data-char="hawkeye" data-faction="avengers">
+          <div class="card-comic-border"></div>
+          <div class="card-badge badge-sniper">СНАЙПЕР</div>
+          <div class="card-image-box">
+            <img src="assets/images/hawkeye-ant.svg" alt="Соколиный Ус" class="char-img">
+            <div class="card-shine"></div>
+          </div>
+          <div class="card-info">
+            <div class="char-real-name">Клинт Муравсон</div>
+            <h3 class="char-name">СОКОЛИНЫЙ УС</h3>
+            <p class="char-role">Стрелок с Шипом Розы</p>
+            <div class="char-stats">
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Меткость:</span>
+                <div class="stat-track"><div class="stat-fill" style="width: 100%;"></div></div>
+                <span class="stat-val">100%</span>
+              </div>
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Дальность обзора:</span>
+                <div class="stat-track"><div class="stat-fill" style="width: 93%;"></div></div>
+                <span class="stat-val">93%</span>
+              </div>
+              <div class="stat-bar-row">
+                <span class="stat-lbl">Стрел в колчане:</span>
+                <div class="stat-track"><div class="stat-fill" style="width: 85%;"></div></div>
+                <span class="stat-val">36 шипов</span>
+              </div>
+            </div>
+            <div class="char-quote">«Я никогда не промахиваюсь. Даже в сильный ветерок.»</div>
+            <button class="btn-inspect" data-target="hawkeye">ИЗУЧИТЬ ДОСЬЕ</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE PLAYABLE MINI-GAME -->
+    <section id="game" class="section-game">
+      <div class="section-header">
+        <span class="section-subtitle">ИНТЕРАКТИВНАЯ АРЕНА</span>
+        <h2 class="section-title">АРКАДА: БИТВА ЗА САХАРНЫЙ ТРОН</h2>
+        <div class="section-divider"></div>
+        <p class="section-desc">
+          Управляйте Муравьем-Мстителем, отражайте волны кибер-тлей и победите Доктора Дума в прямой дуэли!
+        </p>
+      </div>
+
+      <div class="game-container-card">
+        <!-- Game HUD Controls Header -->
+        <div class="game-hud-bar">
+          <div class="hud-item">
+            <span class="hud-label">СЧЕТ:</span>
+            <span class="hud-value" id="game-score">0000</span>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label">КРИСТАЛЛЫ:</span>
+            <span class="hud-value" id="game-sugar">0 🍬</span>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label">ЗДОРОВЬЕ:</span>
+            <div class="hp-bar-outer">
+              <div class="hp-bar-inner" id="game-hp" style="width: 100%;"></div>
+            </div>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label">РЕКОРД:</span>
+            <span class="hud-value" id="game-highscore">0000</span>
+          </div>
+        </div>
+
+        <!-- Canvas Game Screen -->
+        <div class="canvas-wrapper">
+          <canvas id="game-canvas" width="800" height="480"></canvas>
+          
+          <!-- Start / Overlay Screen -->
+          <div id="game-overlay" class="game-overlay">
+            <div class="overlay-content">
+              <h3 class="overlay-title" id="overlay-title">ЗАЩИТИ МУРАВЕЙНИК!</h3>
+              <p class="overlay-desc" id="overlay-desc">
+                Выберите бойца, собирайте сахар и уничтожайте робо-тлей до прихода Доктора Дума!
+              </p>
+
+              <!-- Hero Selection in Game -->
+              <div class="game-hero-picker">
+                <label class="picker-label">Выберите героя:</label>
+                <div class="picker-buttons">
+                  <button class="btn-picker active" data-hero="iron">
+                    <img src="assets/icons/reactor.svg" alt="Железный Муравей" class="picker-icon">
+                    <span>Железный Муравей<br><small>(Скорострельный лазер)</small></span>
+                  </button>
+                  <button class="btn-picker" data-hero="cap">
+                    <img src="assets/icons/shield.svg" alt="Капитан Муравей" class="picker-icon">
+                    <span>Капитан Муравей<br><small>(Рикошетный щит-пробиватель)</small></span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Controls Instruction -->
+              <div class="game-controls-hint">
+                <div class="hint-item"><kbd>A</kbd> <kbd>D</kbd> или <kbd>←</kbd> <kbd>→</kbd> — Перемещение</div>
+                <div class="hint-item"><kbd>ПРОБЕЛ</kbd> — Выстрел / Бросок щита</div>
+              </div>
+
+              <button id="btn-start-game" class="btn-comic btn-game-action">
+                🚀 НАЧАТЬ БИТВУ
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Touch Controls Bar -->
+        <div class="game-mobile-controls">
+          <button id="btn-left" class="btn-touch">◀ ВЛЕВО</button>
+          <button id="btn-fire" class="btn-touch btn-touch-fire">🔥 ВЫСТРЕЛ</button>
+          <button id="btn-right" class="btn-touch">ВПРАВО ▶</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE THREAT CALCULATOR -->
+    <section id="threat-calc" class="section-calculator">
+      <div class="section-header">
+        <span class="section-subtitle">ДИАГНОСТИКА БЕЗОПАСНОСТИ</span>
+        <h2 class="section-title">СКАНИРОВАНИЕ УГРОЗЫ ДУМА</h2>
+        <div class="section-divider"></div>
+        <p class="section-desc">
+          Проверьте ваш садовый участок или подоконник на вероятность вторжения легионов Доктора Дума!
+        </p>
+      </div>
+
+      <div class="calculator-grid">
+        <div class="calc-form-card">
+          <h3 class="calc-card-title">Параметры Сектора</h3>
+          
+          <div class="form-group">
+            <label for="calc-location" class="form-label">Тип местности:</label>
+            <select id="calc-location" class="form-select">
+              <option value="15">Ухоженный дачный газон (Низкий риск)</option>
+              <option value="40" selected>Опушка леса со старым пнем (Зона Латверии!)</option>
+              <option value="30">Кухонный стол с забытым вареньем (Приманка)</option>
+              <option value="55">Сладкий склад кондитерской фабрики (ЭПИЦЕНТР)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="calc-sugar-range">
+              Запас сахара в радиусе 10 метров: <strong id="sugar-amount-lbl">50 грамм</strong>
+            </label>
+            <input type="range" id="calc-sugar-range" min="1" max="250" value="50" class="form-range">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Уровень защиты местности:</label>
+            <div class="checkbox-options">
+              <label class="checkbox-label">
+                <input type="checkbox" id="check-shoes" checked>
+                <span>Обувь на резиновой подошве (угроза раздавливания)</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="check-aphids">
+                <span>Замечены подозрительные тли с зелеными лампочками</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="check-radio">
+                <span>Фоновые помехи радиосвязи (Пси-излучатель Дума)</span>
+              </label>
+            </div>
+          </div>
+
+          <button id="btn-calc-threat" class="btn-comic btn-primary w-100">
+            📊 РАССЧИТАТЬ ВЕРОЯТНОСТЬ АТАКИ
+          </button>
+        </div>
+
+        <div class="calc-result-card" id="calc-result-box">
+          <div class="result-badge" id="threat-level-badge">ОЖИДАНИЕ СКАНИРОВАНИЯ</div>
+          
+          <div class="threat-gauge-circle">
+            <svg viewBox="0 0 100 100" class="gauge-svg">
+              <circle cx="50" cy="50" r="42" class="gauge-bg"/>
+              <circle cx="50" cy="50" r="42" class="gauge-meter" id="gauge-meter-fill"/>
+            </svg>
+            <div class="gauge-text">
+              <span class="gauge-percent" id="gauge-percent-txt">68%</span>
+              <span class="gauge-sub">УГРОЗА</span>
+            </div>
+          </div>
+
+          <h4 class="threat-result-title" id="threat-title">ВЫСОКАЯ ОПАСНОСТЬ НАПАДЕНИЯ ДУМА</h4>
+          <p class="threat-result-desc" id="threat-desc">
+            В секторе зафиксирована подозрительная концентрация сахарозы. 
+            Дум-боты уже калибруют буровые установки. Рекомендуется срочный вызов патруля Железного Муравья!
+          </p>
+
+          <div class="threat-recommendation" id="threat-advice">
+            <strong>РЕКОМЕНДАЦИЯ ШТАБА:</strong> Не оставлять леденцы без присмотра, натереть периметр чесноком и держать под рукой мухобойку.
+          </div>
+
+          <button id="btn-share-report" class="btn-comic btn-secondary mt-3">
+            📋 СКОПИРОВАТЬ ОТЧЕТ РАЗВЕДКИ
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SACRED ARTIFACTS SHOWCASE -->
+    <section id="artifacts" class="section-artifacts">
+      <div class="section-header">
+        <span class="section-subtitle">РЕЛЕКВИИ И ТЕХНОЛОГИИ</span>
+        <h2 class="section-title">АРТЕФАКТЫ МИКРОМИРА</h2>
+        <div class="section-divider"></div>
+        <p class="section-desc">
+          Оружие, броня и источники энергии, за которые сражаются стороны в Великой Сахарной Войне.
+        </p>
+      </div>
+
+      <div class="artifacts-grid">
+        <!-- 1. The Sugar Cube -->
+        <div class="artifact-card">
+          <div class="artifact-icon-wrap">
+            <img src="assets/icons/sugar.svg" alt="Священный Рафинад" class="artifact-img pulse-glow">
+          </div>
+          <h3 class="artifact-name">Священный Кристалл Рафинада</h3>
+          <p class="artifact-lore">
+            Кубик чистейшей сахарозы, оброненный туристом. Содержит 16 000 джоулей сладкой мощи — достаточно, чтобы запитать целый мегаполис-муравейник на пять сезонов спячки.
+          </p>
+          <div class="artifact-stat"><strong>Класс:</strong> Космическая Энергия Колонии</div>
+        </div>
+
+        <!-- 2. The Bottle Cap Shield -->
+        <div class="artifact-card">
+          <div class="artifact-icon-wrap">
+            <img src="assets/icons/shield.svg" alt="Вибраниумный щит" class="artifact-img">
+          </div>
+          <h3 class="artifact-name">Щит «Vibranium Cola Cap»</h3>
+          <p class="artifact-lore">
+            Выкован из закаленной жести крышки газировки. Идеальная балансировка позволяет отскакивать от сосновой коры до 12 раз и возвращаться в лапу Капитана Муравья.
+          </p>
+          <div class="artifact-stat"><strong>Класс:</strong> Несокрушимая Защита</div>
+        </div>
+
+        <!-- 3. Mjolnir Screw -->
+        <div class="artifact-card">
+          <div class="artifact-icon-wrap">
+            <img src="assets/icons/hammer.svg" alt="Винтик Мьёльнир" class="artifact-img">
+          </div>
+          <h3 class="artifact-name">Винтик Мьёльнир</h3>
+          <p class="artifact-lore">
+            Швейцарский часовой винт M1.2 с нарезной резьбой. Пропитан статической молнией. Способен вызывать микро-грозы и взъерошивать шерсть спящего кота на дистанции 15 см.
+          </p>
+          <div class="artifact-stat"><strong>Класс:</strong> Оружие Богов</div>
+        </div>
+
+        <!-- 4. Micro Arc Reactor -->
+        <div class="artifact-card">
+          <div class="artifact-icon-wrap">
+            <img src="assets/icons/reactor.svg" alt="Дуговой Реактор" class="artifact-img pulse-glow">
+          </div>
+          <h3 class="artifact-name">Нектарный Микро-Реактор</h3>
+          <p class="artifact-lore">
+            Изобретение Тони Стерка. Преобразует цветочную пыльцу и сок одуванчика в поток чистых когерентных фотонов, питая репульсоры и турбореактивные крылья брони.
+          </p>
+          <div class="artifact-stat"><strong>Класс:</strong> Высокие Технологии</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECRUITMENT CALL TO ACTION BANNER -->
+    <section class="section-recruitment">
+      <div class="recruitment-container">
+        <div class="recruitment-speech">
+          <h2 class="recruitment-title">ЧЬЮ СТОРОНУ ЗАЙМЕШЬ ТЫ?</h2>
+          <p class="recruitment-desc">
+            Муравейник не забывает своих защитников! Вступай в отряд Муравстей или преклони колени перед железной волей Доктора Дума. Битва разворачивается прямо сейчас у твоих ног!
+          </p>
+          <div class="recruitment-buttons">
+            <button class="btn-comic btn-hero-join" id="btn-join-avengers">
+              🛡️ ПРИСЯГНУТЬ МСТИТЕЛЯМ!
+            </button>
+            <button class="btn-comic btn-doom-join" id="btn-join-doom">
+              👑 СЛУЖИТЬ ДОКТОРУ ДУМУ!
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="footer-brand">МУРАВЬИ-МСТИТЕЛИ vs ДОКТОР ДУМ</div>
+        <p class="footer-copy">
+          © 2026 Вселенная «Земля-616-Миллиметров». 
+          Одобрено Королевой Главного Муравейника. Ни один муравей не пострадал при разработке сайта.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#hero">Вверх</a>
+        <a href="#story">Хроника</a>
+        <a href="#roster">Герои</a>
+        <a href="#game">Игра</a>
+        <a href="#threat-calc">Сканер</a>
+      </div>
+
+      <div class="footer-right">
+        <button id="btn-secret-code" class="btn-secret">ТАЙНЫЙ ПАРОЛЬ МИКРОМИРА</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CHARACTER DETAIL MODAL -->
+  <div id="char-modal" class="modal-overlay hidden" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close-btn" aria-label="Закрыть">✕</button>
+      <div class="modal-body" id="modal-content">
+        <!-- Injected via script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio Synthesizer & Main Script -->
+  <script src="script.js"></script>
+</body>
+</html>
