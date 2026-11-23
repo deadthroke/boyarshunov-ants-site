@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="100%" height="100%">
+  <defs>
+    <!-- Sky / Grass background gradient -->
+    <linearGradient id="bg-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="40%" stop-color="#091e2b"/>
+      <stop offset="70%" stop-color="#064e3b"/>
+      <stop offset="100%" stop-color="#022c22"/>
+    </linearGradient>
+    <radialGradient id="avengers-glow" cx="25%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="doom-citadel-glow" cx="75%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="comic-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="600" fill="url(#bg-sky)"/>
+  <rect width="1200" height="600" fill="url(#avengers-glow)"/>
+  <rect width="1200" height="600" fill="url(#doom-citadel-glow)"/>
+
+  <!-- Comic Halftone Dots Simulation in corners -->
+  <g fill="rgba(255,255,255,0.04)">
+    <circle cx="50" cy="50" r="4"/><circle cx="90" cy="50" r="4"/><circle cx="130" cy="50" r="4"/>
+    <circle cx="70" cy="80" r="4"/><circle cx="110" cy="80" r="4"/><circle cx="150" cy="80" r="4"/>
+    <circle cx="50" cy="110" r="4"/><circle cx="90" cy="110" r="4"/><circle cx="130" cy="110" r="4"/>
+    <circle cx="1050" cy="50" r="4"/><circle cx="1090" cy="50" r="4"/><circle cx="1130" cy="50" r="4"/>
+    <circle cx="1070" cy="80" r="4"/><circle cx="1110" cy="80" r="4"/><circle cx="1150" cy="80" r="4"/>
+  </g>
+
+  <!-- Giant blades of grass silhouetted against the stormy miniature sky -->
+  <path d="M-20 600 Q80 200 40 50 Q120 250 80 600" fill="#042f2e" opacity="0.6"/>
+  <path d="M70 600 Q160 180 130 30 Q200 240 180 600" fill="#064e3b" opacity="0.7"/>
+  <path d="M1020 600 Q1060 160 1120 40 Q1100 250 1150 600" fill="#064e3b" opacity="0.7"/>
+  <path d="M1100 600 Q1140 190 1190 60 Q1160 300 1220 600" fill="#042f2e" opacity="0.6"/>
+
+  <!-- Ground Mound: The Great Anthill vs Latverian Rotten Stump -->
+  <!-- Left Side: Earth, twigs, pine needles of The Great Anthill -->
+  <path d="M0 450 Q300 420 550 490 L600 600 L0 600 Z" fill="#1c1917" stroke="#44403c" stroke-width="2"/>
+  <!-- Right Side: Dark rock cliff where Doctor Doom stands -->
+  <path d="M550 490 Q750 360 1200 410 L1200 600 L550 600 Z" fill="#0f172a" stroke="#1e293b" stroke-width="3"/>
+
+  <!-- Doom's Latverian Fortress in Background (Rotten Oak Stump with Glowing Green Windows) -->
+  <path d="M850 420 L870 200 L950 180 L1020 210 L1040 420 Z" fill="#1e293b" stroke="#334155" stroke-width="3"/>
+  <rect x="900" y="230" width="20" height="35" rx="3" fill="#22c55e" filter="url(#comic-glow)"/>
+  <rect x="950" y="240" width="16" height="30" rx="3" fill="#22c55e" filter="url(#comic-glow)"/>
+  <rect x="920" y="290" width="28" height="40" rx="3" fill="#22c55e" filter="url(#comic-glow)"/>
+
+  <!-- The Stolen Sacred Sugar Crystal atop the central rock -->
+  <g transform="translate(560, 410) scale(0.9)">
+    <polygon points="40,10 70,25 40,40 10,25" fill="#bae6fd" stroke="#ffffff"/>
+    <polygon points="10,25 40,40 40,75 10,60" fill="#38bdf8"/>
+    <polygon points="40,40 70,25 70,60 40,75" fill="#0284c7"/>
+    <circle cx="40" cy="42" r="30" fill="rgba(56, 189, 248, 0.4)" filter="url(#comic-glow)"/>
+  </g>
+
+  <!-- Clash Lightning between Tech Magic and Repulsors -->
+  <!-- Blue Lightning from left -->
+  <path d="M380 280 L460 290 L440 310 L540 320" stroke="#38bdf8" stroke-width="5" fill="none" filter="url(#comic-glow)"/>
+  <!-- Green Energy Beam from right -->
+  <path d="M820 260 L720 280 L750 300 L540 320" stroke="#4ade80" stroke-width="6" fill="none" filter="url(#comic-glow)"/>
+  <!-- Clash Explosion in Center -->
+  <circle cx="540" cy="320" r="28" fill="#ffffff" filter="url(#comic-glow)"/>
+  <polygon points="540,270 555,305 590,320 555,335 540,370 525,335 490,320 525,305" fill="#fef08a" filter="url(#comic-glow)"/>
+
+  <!-- LEFT TEAM: AVENGERS SILHOUETTES & GLOWS -->
+  <!-- Thor Ant in sky with lightning -->
+  <g transform="translate(140, 140) scale(0.65)">
+    <!-- Wings & Cape -->
+    <path d="M60 90 L-10 130 L10 180" fill="#dc2626"/>
+    <!-- Body -->
+    <ellipse cx="60" cy="110" rx="20" ry="25" fill="#cbd5e1"/>
+    <!-- Mjolnir raised -->
+    <line x1="75" y1="95" x2="110" y2="40" stroke="#92400e" stroke-width="5"/>
+    <rect x="95" y="25" width="30" height="20" rx="3" fill="#ffffff" filter="url(#comic-glow)"/>
+    <path d="M110 30 L160 0 M110 30 L80 -20" stroke="#38bdf8" stroke-width="3" filter="url(#comic-glow)"/>
+  </g>
+
+  <!-- Iron Ant flying mid-air -->
+  <g transform="translate(260, 200) scale(0.75)">
+    <!-- Repulsor Thruster Glow -->
+    <path d="M50 140 L30 190 L70 190 Z" fill="#38bdf8" filter="url(#comic-glow)"/>
+    <!-- Armor Body -->
+    <ellipse cx="60" cy="90" rx="28" ry="36" fill="#b91c1c" stroke="#eab308" stroke-width="3"/>
+    <circle cx="60" cy="90" r="10" fill="#ffffff" filter="url(#comic-glow)"/>
+    <!-- Head & Glowing Eyes -->
+    <ellipse cx="60" cy="40" rx="18" ry="22" fill="#b91c1c"/>
+    <line x1="52" y1="38" x2="68" y2="38" stroke="#38bdf8" stroke-width="4" filter="url(#comic-glow)"/>
+    <!-- Arm firing Repulsor -->
+    <line x1="80" y1="80" x2="140" y2="90" stroke="#b91c1c" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="140" cy="90" r="8" fill="#ffffff" filter="url(#comic-glow)"/>
+  </g>
+
+  <!-- Captain Muravey standing on hill, shield ready -->
+  <g transform="translate(320, 310) scale(0.85)">
+    <!-- Ant Body -->
+    <ellipse cx="60" cy="110" rx="25" ry="35" fill="#1d4ed8" stroke="#0f172a" stroke-width="3"/>
+    <ellipse cx="60" cy="60" rx="20" ry="24" fill="#1d4ed8"/>
+    <!-- Antennae -->
+    <path d="M50 40 Q30 10 20 20" stroke="#38bdf8" stroke-width="3" fill="none"/>
+    <path d="M70 40 Q90 10 100 20" stroke="#38bdf8" stroke-width="3" fill="none"/>
+    <!-- Giant Bottle Cap Shield facing Doom -->
+    <g transform="translate(75, 50)">
+      <circle cx="45" cy="45" r="42" fill="#b91c1c" stroke="#f59e0b" stroke-width="2"/>
+      <circle cx="45" cy="45" r="32" fill="#ffffff"/>
+      <circle cx="45" cy="45" r="22" fill="#b91c1c"/>
+      <circle cx="45" cy="45" r="12" fill="#1d4ed8"/>
+      <polygon points="45,35 48,41 55,41 50,46 52,52 45,48 38,52 40,46 35,41 42,41" fill="#ffffff"/>
+    </g>
+  </g>
+
+  <!-- Hulk Ant charging in from bottom left -->
+  <g transform="translate(40, 310) scale(1.1)">
+    <ellipse cx="80" cy="100" rx="45" ry="50" fill="#16a34a" stroke="#052e16" stroke-width="4"/>
+    <ellipse cx="80" cy="40" rx="26" ry="28" fill="#16a34a"/>
+    <polygon points="70,35 90,35 85,44 75,44" fill="#ffffff" filter="url(#comic-glow)"/>
+    <!-- Huge bicep -->
+    <circle cx="130" cy="80" r="22" fill="#16a34a" stroke="#052e16" stroke-width="3"/>
+  </g>
+
+  <!-- RIGHT TEAM: DOCTOR DOOM & DOOM-BOTS -->
+  <!-- Doctor Ant Doom standing atop the high stone -->
+  <g transform="translate(800, 210) scale(1.1)">
+    <!-- Emerald Aura -->
+    <circle cx="70" cy="80" r="80" fill="rgba(34, 197, 94, 0.25)" filter="url(#comic-glow)"/>
+    <!-- Flowing Green Cape -->
+    <path d="M40 70 C0 110, -20 180, -10 220 C40 210, 80 215, 120 225 C140 180, 130 110, 100 70 Z" fill="#15803d" stroke="#052e16" stroke-width="3"/>
+    <!-- Titanium Body -->
+    <ellipse cx="70" cy="95" rx="30" ry="38" fill="#64748b" stroke="#0f172a" stroke-width="3"/>
+    <!-- Head with Moss Hood -->
+    <path d="M70 15 C35 15, 25 45, 30 85 C40 100, 100 100, 110 85 C115 45, 105 15, 70 15 Z" fill="#15803d" stroke="#052e16" stroke-width="3"/>
+    <!-- Titanium Face Mask & Glowing Slits -->
+    <path d="M50 45 C50 40, 90 40, 90 45 L85 80 L55 80 Z" fill="#94a3b8" stroke="#0f172a" stroke-width="2"/>
+    <polygon points="56,55 68,58 66,64 54,61" fill="#4ade80" filter="url(#comic-glow)"/>
+    <polygon points="84,55 72,58 74,64 86,61" fill="#4ade80" filter="url(#comic-glow)"/>
+    <!-- Titanium Ant Mandibles -->
+    <path d="M58 75 C60 90, 68 92, 70 85" stroke="#f1f5f9" stroke-width="2.5" fill="none"/>
+    <path d="M82 75 C80 90, 72 92, 70 85" stroke="#f1f5f9" stroke-width="2.5" fill="none"/>
+    <!-- Antennae piercing hood -->
+    <path d="M55 25 Q35 0 25 10" stroke="#4ade80" stroke-width="3" fill="none" filter="url(#comic-glow)"/>
+    <path d="M85 25 Q105 0 115 10" stroke="#4ade80" stroke-width="3" fill="none" filter="url(#comic-glow)"/>
+    <!-- Arm casting Bio-Plasma ray -->
+    <path d="M45 85 L-10 80 L-40 60" stroke="#64748b" stroke-width="9" stroke-linecap="round" fill="none"/>
+    <circle cx="-40" cy="60" r="14" fill="#22c55e" filter="url(#comic-glow)"/>
+  </g>
+
+  <!-- Doom-Bot Minions marching behind Doom -->
+  <g transform="translate(980, 360) scale(0.65)">
+    <ellipse cx="60" cy="80" rx="30" ry="38" fill="#334155" stroke="#0f172a" stroke-width="3"/>
+    <ellipse cx="60" cy="35" rx="18" ry="20" fill="#475569"/>
+    <rect x="46" y="30" width="28" height="6" fill="#22c55e" filter="url(#comic-glow)"/>
+  </g>
+  <g transform="translate(1070, 380) scale(0.6)">
+    <ellipse cx="60" cy="80" rx="30" ry="38" fill="#334155" stroke="#0f172a" stroke-width="3"/>
+    <ellipse cx="60" cy="35" rx="18" ry="20" fill="#475569"/>
+    <rect x="46" y="30" width="28" height="6" fill="#22c55e" filter="url(#comic-glow)"/>
+  </g>
+
+  <!-- Foreground pine needles and sugar grains on battlefield -->
+  <!-- Pine needles -->
+  <line x1="300" y1="530" x2="420" y2="560" stroke="#854d0e" stroke-width="4" stroke-linecap="round"/>
+  <line x1="380" y1="570" x2="480" y2="540" stroke="#a16207" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="720" y1="540" x2="840" y2="570" stroke="#854d0e" stroke-width="4" stroke-linecap="round"/>
+  <!-- Sugar crystals scattered on ground -->
+  <polygon points="510,510 516,514 513,520 507,516" fill="#ffffff" filter="url(#comic-glow)"/>
+  <polygon points="610,530 618,535 614,542 606,537" fill="#ffffff" filter="url(#comic-glow)"/>
+  <polygon points="460,540 466,543 463,549 457,546" fill="#ffffff"/>
+  <polygon points="690,520 697,525 693,532 686,527" fill="#ffffff"/>
+
+  <!-- Comic Action Text: "БИТВА ЗА МУРАВЕЙНИК!" in dynamic angle -->
+  <g transform="translate(600, 75)">
+    <!-- Comic sound/caption box -->
+    <rect x="-240" y="-35" width="480" height="70" rx="10" fill="#facc15" stroke="#000000" stroke-width="5" transform="rotate(-2)"/>
+    <text x="0" y="10" font-family="'Impact', 'Arial Black', sans-serif" font-size="34" font-weight="900" fill="#000000" text-anchor="middle" letter-spacing="2" transform="rotate(-2)">
+      ВЕЛИКАЯ САХАРНАЯ ВОЙНА
+    </text>
+  </g>
+</svg>

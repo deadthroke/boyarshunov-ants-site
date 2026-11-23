@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <radialGradient id="silver-bolt" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </radialGradient>
+    <linearGradient id="wood-handle" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="50%" stop-color="#92400e"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </linearGradient>
+    <filter id="lightning-glow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Lightning bolts -->
+  <path d="M12 25 L24 35 L18 42 L34 50" stroke="#38bdf8" stroke-width="2.5" fill="none" filter="url(#lightning-glow)"/>
+  <path d="M78 12 L68 28 L76 32 L62 46" stroke="#38bdf8" stroke-width="2.5" fill="none" filter="url(#lightning-glow)"/>
+  <path d="M85 65 L72 60 L78 52 L65 48" stroke="#38bdf8" stroke-width="2" fill="none" filter="url(#lightning-glow)"/>
+  
+  <!-- Toothpick / Twig Handle -->
+  <rect x="46" y="44" width="8" height="48" rx="2" fill="url(#wood-handle)" stroke="#451a03" stroke-width="1.5" transform="rotate(-25 50 68)"/>
+  <!-- Leather wrap on handle -->
+  <line x1="44" y1="62" x2="52" y2="58" stroke="#fef08a" stroke-width="1.5"/>
+  <line x1="48" y1="72" x2="56" y2="68" stroke="#fef08a" stroke-width="1.5"/>
+  <line x1="52" y1="82" x2="60" y2="78" stroke="#fef08a" stroke-width="1.5"/>
+  <!-- Wrist strap made of dried grass blade -->
+  <path d="M60 88 Q68 96 62 98 Q56 94 58 88" fill="none" stroke="#65a30d" stroke-width="2"/>
+
+  <!-- Sacred Hexagonal Watch Nut / Screw Head (Mjölnir) -->
+  <g transform="rotate(-25 45 32)">
+    <!-- Main Bolt block -->
+    <rect x="22" y="16" width="46" height="30" rx="3" fill="url(#silver-bolt)" stroke="#1e293b" stroke-width="2"/>
+    <!-- Center screw groove / runic slot -->
+    <rect x="28" y="28" width="34" height="6" fill="#0f172a" rx="1"/>
+    <!-- Norse Ant Runes -->
+    <circle cx="34" cy="22" r="2" fill="#38bdf8" filter="url(#lightning-glow)"/>
+    <circle cx="45" cy="22" r="2" fill="#38bdf8" filter="url(#lightning-glow)"/>
+    <circle cx="56" cy="22" r="2" fill="#38bdf8" filter="url(#lightning-glow)"/>
+  </g>
+</svg>

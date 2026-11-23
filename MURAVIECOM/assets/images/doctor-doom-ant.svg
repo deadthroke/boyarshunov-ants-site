@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 450" width="100%" height="100%">
+  <defs>
+    <!-- Background aura -->
+    <radialGradient id="doom-back-glow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#15803d" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#052e16" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Cape Green Gradient -->
+    <linearGradient id="cape-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="35%" stop-color="#15803d"/>
+      <stop offset="80%" stop-color="#14532d"/>
+      <stop offset="100%" stop-color="#052e16"/>
+    </linearGradient>
+    <!-- Armor Metal Gradient -->
+    <linearGradient id="armor-metal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="40%" stop-color="#94a3b8"/>
+      <stop offset="80%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <filter id="emerald-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background glow -->
+  <circle cx="200" cy="200" r="180" fill="url(#doom-back-glow)"/>
+
+  <!-- Energy sparks -->
+  <path d="M70 120 L90 140 L85 155 L110 170" stroke="#4ade80" stroke-width="3" fill="none" filter="url(#emerald-glow)"/>
+  <path d="M330 110 L310 135 L320 150 L290 175" stroke="#4ade80" stroke-width="3" fill="none" filter="url(#emerald-glow)"/>
+  <circle cx="110" cy="170" r="4" fill="#86efac" filter="url(#emerald-glow)"/>
+  <circle cx="290" cy="175" r="4" fill="#86efac" filter="url(#emerald-glow)"/>
+
+  <!-- Flowing Forest Leaf Cape -->
+  <path d="M120 180 C80 230, 60 340, 70 420 C120 400, 160 410, 200 425 C240 410, 280 400, 330 420 C340 340, 320 230, 280 180 Z" fill="url(#cape-grad)" stroke="#052e16" stroke-width="3"/>
+  <!-- Cape fold lines -->
+  <path d="M150 200 C130 280, 120 360, 110 415" stroke="#052e16" stroke-width="3" fill="none"/>
+  <path d="M250 200 C270 280, 280 360, 290 415" stroke="#052e16" stroke-width="3" fill="none"/>
+  <path d="M200 230 C200 310, 205 370, 200 425" stroke="#052e16" stroke-width="2.5" fill="none"/>
+
+  <!-- Gold Brooch Chain on Cape -->
+  <circle cx="140" cy="180" r="8" fill="#eab308" stroke="#713f12" stroke-width="2"/>
+  <circle cx="260" cy="180" r="8" fill="#eab308" stroke="#713f12" stroke-width="2"/>
+  <path d="M148 182 Q200 205 252 182" fill="none" stroke="#eab308" stroke-width="3"/>
+
+  <!-- Six Mechanical / Armored Ant Legs -->
+  <!-- Top Left Leg -->
+  <path d="M140 220 L70 180 L30 210 L15 250" fill="none" stroke="url(#armor-metal)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="70" cy="180" r="6" fill="#eab308"/>
+  <circle cx="30" cy="210" r="5" fill="#eab308"/>
+  <!-- Top Right Leg -->
+  <path d="M260 220 L330 180 L370 210 L385 250" fill="none" stroke="url(#armor-metal)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="330" cy="180" r="6" fill="#eab308"/>
+  <circle cx="370" cy="210" r="5" fill="#eab308"/>
+
+  <!-- Mid Left Leg (casting magic/tech) -->
+  <path d="M135 250 L60 260 L40 310" fill="none" stroke="url(#armor-metal)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Mid Right Leg -->
+  <path d="M265 250 L340 260 L360 310" fill="none" stroke="url(#armor-metal)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Bottom Legs (standing on rock) -->
+  <path d="M145 310 L90 350 L75 400" fill="none" stroke="url(#armor-metal)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M255 310 L310 350 L325 400" fill="none" stroke="url(#armor-metal)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Latverian Moss Stone Platform -->
+  <path d="M40 400 Q200 370 360 400 L380 445 L20 445 Z" fill="#334155" stroke="#1e293b" stroke-width="3"/>
+  <path d="M80 405 Q140 395 220 402" stroke="#22c55e" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- Ant Thorax (Armored Exoskeleton) -->
+  <ellipse cx="200" cy="250" rx="45" ry="55" fill="url(#armor-metal)" stroke="#0f172a" stroke-width="3"/>
+  <!-- Cybernetic chestplate lines -->
+  <path d="M175 220 L200 240 L225 220" stroke="#0f172a" stroke-width="3" fill="none"/>
+  <circle cx="200" cy="265" r="12" fill="#0f172a" stroke="#22c55e" stroke-width="2"/>
+  <circle cx="200" cy="265" r="6" fill="#4ade80" filter="url(#emerald-glow)"/>
+
+  <!-- Doctor Doom Ant Head (Hood + Titanium Mask) -->
+  <!-- Hood Base -->
+  <path d="M200 40 C140 40, 120 90, 125 160 C135 195, 170 205, 200 205 C230 205, 265 195, 275 160 C280 90, 260 40, 200 40 Z" fill="url(#cape-grad)" stroke="#052e16" stroke-width="4"/>
+  
+  <!-- Ant Antennae piercing through hood -->
+  <path d="M165 70 C140 30, 105 40, 90 55" fill="none" stroke="#22c55e" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="90" cy="55" r="6" fill="#4ade80" filter="url(#emerald-glow)"/>
+  
+  <path d="M235 70 C260 30, 295 40, 310 55" fill="none" stroke="#22c55e" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="310" cy="55" r="6" fill="#4ade80" filter="url(#emerald-glow)"/>
+
+  <!-- Hood Shadow Inside -->
+  <ellipse cx="200" cy="130" rx="55" ry="60" fill="#052e16"/>
+
+  <!-- Micro-Titanium Face Mask -->
+  <path d="M155 95 C155 85, 245 85, 245 95 C250 140, 235 175, 200 185 C165 175, 150 140, 155 95 Z" fill="url(#armor-metal)" stroke="#0f172a" stroke-width="3"/>
+
+  <!-- Mask Rivets -->
+  <circle cx="165" cy="100" r="2.5" fill="#f8fafc"/>
+  <circle cx="235" cy="100" r="2.5" fill="#f8fafc"/>
+  <circle cx="160" cy="135" r="2.5" fill="#f8fafc"/>
+  <circle cx="240" cy="135" r="2.5" fill="#f8fafc"/>
+
+  <!-- Menacing Slanted Insect Eyes (Emerald Glow) -->
+  <polygon points="165,115 188,122 184,132 162,126" fill="#22c55e" filter="url(#emerald-glow)"/>
+  <polygon points="235,115 212,122 216,132 238,126" fill="#22c55e" filter="url(#emerald-glow)"/>
+
+  <!-- Brow furrow in metal -->
+  <path d="M165 110 L200 120 L235 110" stroke="#1e293b" stroke-width="3" fill="none"/>
+
+  <!-- Speaker Grille / Breathing Ports -->
+  <rect x="188" y="140" width="24" height="24" rx="2" fill="#0f172a"/>
+  <line x1="192" y1="145" x2="208" y2="145" stroke="#64748b" stroke-width="2"/>
+  <line x1="192" y1="150" x2="208" y2="150" stroke="#64748b" stroke-width="2"/>
+  <line x1="192" y1="155" x2="208" y2="155" stroke="#64748b" stroke-width="2"/>
+  <line x1="192" y1="160" x2="208" y2="160" stroke="#64748b" stroke-width="2"/>
+
+  <!-- Razor-Sharp Titanium Mandibles -->
+  <path d="M170 155 C175 185, 192 195, 196 182 C188 175, 180 162, 170 155 Z" fill="#e2e8f0" stroke="#0f172a" stroke-width="2"/>
+  <path d="M230 155 C225 185, 208 195, 204 182 C212 175, 220 162, 230 155 Z" fill="#e2e8f0" stroke="#0f172a" stroke-width="2"/>
+
+  <!-- Bioplasmic Magic Lightning in Claw -->
+  <circle cx="40" cy="310" r="14" fill="#22c55e" filter="url(#emerald-glow)" opacity="0.85"/>
+  <circle cx="40" cy="310" r="7" fill="#ffffff"/>
+  <path d="M40 310 Q10 330 30 360" stroke="#86efac" stroke-width="2" fill="none" filter="url(#emerald-glow)"/>
+  <path d="M40 310 Q70 340 50 370" stroke="#86efac" stroke-width="2" fill="none" filter="url(#emerald-glow)"/>
+</svg>
